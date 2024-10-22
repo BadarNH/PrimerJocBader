@@ -12,6 +12,7 @@ var screen_size # Mida de la finestra de joc.
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
+	hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -36,3 +37,10 @@ func _process(delta):
 	position += velocity * delta
 	position.x = clamp(position.x, 0, screen_size.x)
 	position.y = clamp(position.y, 0, screen_size.y)
+	if velocity.x != 0:
+		$AnimatedSprite.animation = "walk"
+		$AnimatedSprite.flip_v = false
+		$AnimatedSprite.flip_h = velocity.x < 0
+	elif velocity.y != 0:
+		$AnimatedSprite.animation = "up"
+		$AnimatedSprite.flip_v = velocity.y > 0
