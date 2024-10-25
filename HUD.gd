@@ -26,9 +26,9 @@ func show_game_over():
 	# Feu un temporitzador one-shot i espereu que acabi.
 	yield(get_tree().create_timer(1), "timeout")
 	$StartButton.show()
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	# Called every frame. 'delta' is the elapsed time since the previous frame.
+	#func _process(delta):
+	#	pass
 
 func update_score(score):
 	$ScoreLabel.text = str(score)
@@ -41,10 +41,3 @@ func _on_StartButton_pressed():
 func _on_MessageTimer_timeout():
 	$Message.hide()
 
-
-func _on_HUD_start_game():
-	pass # Replace with function body.
-
-
-func new_game():
-	pass # Replace with function body.
